@@ -25,7 +25,7 @@ This ceremony appears to be a core part of their infrastructure as they’re in 
 
 ### - Step 1: clone and Run this script:
 ```
-git clone https://github.com/bigray0x/Semaphore-TCS.git && Semaphore-TCS
+git clone https://github.com/bigray0x/Semaphore-TCS.git && cd Semaphore-TCS
 ```
 
 ### - Step 2: make the script executable
