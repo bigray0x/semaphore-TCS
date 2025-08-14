@@ -68,4 +68,24 @@ else
     echo "Phase2 CLI already installed. Skipping."
 fi
 
+echo "=== Authenticating with GitHub ==="
+echo "Follow the instructions to complete login in your browser..."
+phase2cli auth
 
+echo "=== Authentication complete ==="
+read -p "Do you want to contribute to the Semaphore TSC now? (y/n): " contribute_now
+
+if [[ "$contribute_now" =~ ^[Yy]$ ]]; then
+    if [ "$PLATFORM" = "Linux" ]; then
+        echo "Starting Semaphore contribution inside a screen session named 'semaphore'..."
+        screen -S semaphore bash -c "phase2cli contribute -c semaphore-binary-merkle-root-fix"
+    else
+        echo "Running Semaphore contribution directly (keep this terminal open)..."
+        phase2cli contribute -c semaphore-binary-merkle-root-fix
+    fi
+else
+    echo "You can contribute later by running:"
+    echo "  phase2cli contribute -c semaphore-binary-merkle-root-fix"
+fi
+
+echo "=== Setup complete ==="
